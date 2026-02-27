@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Virtual environments
+.venv/
+venv/
+backend-core-api/.venv/
+demo-ui/.venv/
+
+# Local databases and env files
+*.db
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+dist/
