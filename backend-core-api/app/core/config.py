@@ -1,3 +1,4 @@
+import os
 from functools import lru_cache
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -6,7 +7,10 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     app_name: str = "backend-core-api"
     environment: str = "development"
-    database_url: str = "sqlite:///./backend_core_api.db"
+    database_url: str = os.getenv(
+        "DATABASE_URL",
+        "postgresql+psycopg2://ritvikparuchuri@localhost/granite_db",
+    )
     secret_key: str = "change-me-in-production"
     algorithm: str = "HS256"
     access_token_expire_minutes: int = 60
